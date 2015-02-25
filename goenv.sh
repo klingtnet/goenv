@@ -8,9 +8,6 @@
 # to make sure that go env can overwrite the GOPATH, please export it like this:
 # export GOPATH=${GOPATH:"/default/path"}
 
-# move this to an rc file
-export GOENVS=~/personal/dev/sh/goenv/goenvs
-
 goenv_check() {
 # http://stackoverflow.com/a/3243034
     if [ -z ${GOENVS+GOENVS} ]; then
@@ -26,8 +23,8 @@ goenv_help() {
     echo "goenv [option] <name>
     Omitting the option will activate the environment <name>. If there environment does'nt exist, it will be created.
 
-    -l, --list      list goenvs in $GOENVS
-    -c, --create    create goenv in $GOENVS
+    -l, --list      list goenvs in \"$GOENVS\"
+    -c, --create    create goenv in \"$GOENVS\"
     -r, --remove    removes one or more goenvs <name> [<name2> ...]
     -e, --exec      run a command(s) in goenv <name>.
         Example: goenv -e hello \"foo -b -a -r\"
