@@ -24,6 +24,7 @@ goenv_help() {
     -r, --remove    removes one or more goenvs <name> [<name2> ...]
     -e, --exec      run a command(s) in goenv <name>.
         Example: goenv -e hello \"foo -b -a -r\"
+    -t, --try       creates a one-time goenv
     --remove-all    removes all of your goenvs (use this with care!)
     -h, --help      prints this help text"
 }
@@ -36,6 +37,20 @@ goenv_start() {
 export GOENV_NAME=$1;\
 PATH=$GOENVS/$1/bin:$PATH;\
 $SHELL -i"
+}
+
+goenv_try() {
+    local TRYPATH=$(mktemp --directory)
+    if [ -n "$TRYPATH" ]; then
+        local TRYNAME=$(basename $TRYPATH)
+        $SHELL -c "export GOPATH=$TRYPATH/$1;\
+export GOENV_NAME=${TRYNAME};\
+PATH=$TRYPATH/bin:$PATH;\
+$SHELL -i"
+    else
+        echo "Could not create temporary directory using 'mktemp'!"
+        return 1
+    fi
 }
 
 goenv_exec() {
@@ -107,6 +122,9 @@ goenv() {
             ;;
         "-e" | "--exec")
             goenv_exec "${@:2}"
+            ;;
+        "-t" | "--try")
+            goenv_try
             ;;
         *)
             goenv_start "$@"
