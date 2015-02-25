@@ -17,7 +17,7 @@ goenv_check() {
 
 goenv_help() {
     echo "goenv [option] <name>
-    Omitting the option will activate the environment <name>. If there environment does'nt exist, it will be created.
+    Omitting the option will activate the environment <name>. If the environment does'nt exist, it will be created.
 
     -l, --list      list goenvs in \"$GOENVS\"
     -c, --create    create goenv in \"$GOENVS\"
