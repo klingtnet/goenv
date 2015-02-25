@@ -32,6 +32,8 @@ export GOPATH=${GOPATH:-/default/gopath}
 goenv -c evalia && goenv -e evalia 'go get github.com/heyLu/linguaevalia && linguaevalia'
 ```
 
+- you can run a temporary goenv with `goenv -t`, it will be deleted after you leave it
+
 ## Demo
 
 ![goenv demo](demo.gif)
