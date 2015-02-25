@@ -46,7 +46,7 @@ goenv_try() {
         $SHELL -c "export GOPATH=$TRYPATH/$1;\
 export GOENV_NAME=${TRYNAME};\
 PATH=$TRYPATH/bin:$PATH;\
-$SHELL -i"
+$SHELL -i" && rm -rf "$TRYPATH"
     else
         echo "Could not create temporary directory using 'mktemp'!"
         return 1
