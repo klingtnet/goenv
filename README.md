@@ -1,4 +1,4 @@
-# goenv - virtual environments for the [Go](https://golang.org/)
+# goenv - virtual environments for [Go](https://golang.org/)
 
 **goenv** lets you create virtual environments for your Go projects. This means that you can install all the dependencies locally for your project without cluttering your user- or system-wide `GOPATH`.
 
