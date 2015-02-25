@@ -17,7 +17,7 @@ export GOENVS=~/path/to/goenvs      # create the directory
 source /path/to/goenvs/goenvs.sh
 ```
 
-Make sure that your `GOPATH` is only set if it's unset, so that **goenv** is able change it in a subshell. Substitute your `export GOPATH` with the following one and you are good to go:
+If you've already the set the `GOPATH` globally, make sure that your `GOPATH` is only set if it's unset, so that **goenv** is able change it in a subshell. Substitute your `export GOPATH` with the following one and you are good to go:
 
 ```sh
 export GOPATH=${GOPATH:-/default/gopath}
