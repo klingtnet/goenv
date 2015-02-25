@@ -8,7 +8,7 @@ It was inspired by pythons [vex](https://pypi.python.org/pypi/vex) and opens a s
 
 I've tested it with `bash` and `zsh`. Maybe it will work with other shells, too.
 
-## installation
+## Installation
 
 The installation is super simple, you have to set the `GOENVS` environment variable and source the [`goenvs.sh`](goenvs.sh) script. Add the following lines to your `.bashrc/.zshrc`:
 
@@ -23,11 +23,17 @@ Make sure that your `GOPATH` is only set if it's unset, so that **goenv** is abl
 export GOPATH=${GOPATH:-/default/gopath}
 ```
 
-## help
+## Help
 
 - run `goenv` without parameter or `goenv -h` to view the help.
 
-## demo
+## Demo
 
 ![goenv demo](demo.gif)
 
+recorded with [tty2gif](http://z24.github.io/tty2gif/).
+
+## Todo
+
+- support for different go version (if someone needs this)
+- changing the language is easy, so I want to port this for python
