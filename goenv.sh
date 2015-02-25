@@ -4,10 +4,6 @@
 # Andreas Linz
 # www.klingt.net
 
-#
-# to make sure that go env can overwrite the GOPATH, please export it like this:
-# export GOPATH=${GOPATH:"/default/path"}
-
 goenv_check() {
 # http://stackoverflow.com/a/3243034
     if [ -z ${GOENVS+GOENVS} ]; then
