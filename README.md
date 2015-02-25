@@ -26,6 +26,11 @@ export GOPATH=${GOPATH:-/default/gopath}
 ## Help
 
 - run `goenv` without parameter or `goenv -h` to view the help.
+- when you want to execute a command in *goenv* using the `-e/--exec` flags, make sure that you write your commands in single quotes, g.e.:
+
+```sh
+goenv --exec hello 'echo $GOPATH; hello'
+```
 
 ## Demo
 
