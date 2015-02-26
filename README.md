@@ -43,4 +43,4 @@ recorded with [tty2gif](http://z24.github.io/tty2gif/).
 ## Todo
 
 - support for different go version (if someone needs this)
-- changing the language is easy, so I want to port this for python
+- ~~changing the language is easy, so I want to port this for python~~ manually creating virtual envrionments in python (w/o using virtualenv or venv) is nuts
