@@ -6,7 +6,7 @@
 
 goenv_check() {
 # http://stackoverflow.com/a/3243034
-    if [ -z ${GOENVS+GOENVS} ]; then
+    if [ -z ${GOENVS:+GOENVS} ]; then
         echo "GOENVS environment variable is not set!"
         eval $1=''
     elif [ ! -d $GOENVS ]; then
@@ -33,9 +33,17 @@ goenv_start() {
     if [ -z $(goenv --list | grep -- "$1") ]; then
         goenv -c "$1"
     fi
+    if [ -f $GOENVS/$1/.project ]; then
+        local PROJECTPATH="$(head --lines 1 $GOENVS/$1/.project)"
+    fi
+    if [ -f $GOENVS/$1/startup.sh ]; then
+        local STARTUPPATH="$GOENVS/$1/startup.sh"
+    fi
     $SHELL -c "export GOPATH=$GOENVS/$1;\
 export GOENV_NAME=$1;\
 PATH=$GOENVS/$1/bin:$PATH;\
+if [ -n $PROJECTPATH ]; then cd $PROJECTPATH; fi;\
+if [ -n $STARTUPPATH ]; then $STARTUPPATH; fi;\
 $SHELL -i"
 }
 
