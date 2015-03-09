@@ -8,6 +8,14 @@ It was inspired by pythons [vex](https://pypi.python.org/pypi/vex) and opens a s
 
 I've tested it with `bash` and `zsh`. Maybe it will work with other shells, too.
 
+## Features
+
+- if a `.project` file exists in the `$GOPATH` root, then goenv will `cd` into the directory which is specified in the first line of that file when the *goenv* is started
+    - an easy way to create such a file is like this (assumed that you're currently in the project directory and the corresponding *goenv* is activated): `pwd > $GOPATH/.project`
+    - next time you activate the *goenv*, you will be automically cd'ed into the project path
+- if the startup script `startup.sh` exists in the `$GOPATH` root, then
+  it will be executed when the *goenv* is started
+
 ## Installation
 
 The installation is super simple, you have to set the `GOENVS` environment variable and source the [`goenvs.sh`](goenvs.sh) script. Add the following lines to your `.bashrc/.zshrc`:
